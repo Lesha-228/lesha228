@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Треды{% endblock %}
+{% block content %}
+<h1>Список тредов</h1>
+<ul>
+    {% for thread in threads %}
+        <li><a href="{% url 'thread_detail' thread.id %}">{{ thread.name }}</a></li>
+    {% endfor %}
+</ul>
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Создать тред</button>
+</form>
+{% endblock %}

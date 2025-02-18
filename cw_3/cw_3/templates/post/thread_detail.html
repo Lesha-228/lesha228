@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ thread.name }}{% endblock %}
+{% block content %}
+<h1>{{ thread.name }}</h1>
+<p>{{ thread.description }}</p>
+
+<h2>Посты</h2>
+<ul>
+    {% for post in posts %}
+        <li>{{ post.title }} — {{ post.author }} | <a href="{% url 'post_edit' post.id %}">Редактировать</a> | <a href="{% url 'post_delete' post.id %}">Удалить</a></li>
+    {% endfor %}
+</ul>
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Добавить пост</button>
+</form>
+{% endblock %}

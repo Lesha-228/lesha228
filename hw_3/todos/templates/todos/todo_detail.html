@@ -1,0 +1,5 @@
+<h2>{{ todo.title }}</h2>
+<p>{{ todo.description }}</p>
+<p>Дата выполнения: {{ todo.due_date }}</p>
+<p>Статус: {{ todo.status|yesno:"Выполнено,Не выполнено" }}</p>
+<a href="{% url 'todo_list' %}">Назад</a>

@@ -1,0 +1,13 @@
+{% for todo in todos %}
+    <h2>{{ todo.title }}</h2>
+    <p>{{ todo.description }}</p>
+    <a href="{% url 'todo_detail' todo.id %}">Подробнее</a>
+    <form action="{% url 'todo_delete' todo.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+{% endfor %}
+<a href="{% url 'todo_create' %}">Добавить новую задачу</a>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'todos/styles.css' %}">
+
