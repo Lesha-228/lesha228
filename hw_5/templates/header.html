@@ -1,0 +1,6 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'todos:list' %}">Todo App</a>
+    {% if user.is_authenticated %}
+        <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+</nav>

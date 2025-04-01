@@ -1,8 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h2>Детали пользователя</h2>
-<p>Имя: {{ customer.name }}</p>
-<p>Телефон: {{ customer.phone }}</p>
-<a href="{% url 'customer-list' %}">Назад</a>
-{% endblock %}
