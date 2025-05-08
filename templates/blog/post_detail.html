@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <p><em>Создано: {{ post.created_at }}</em></p>
+
+    <hr>
+
+    <h2>Комментарии</h2>
+    {% if comments %}
+        <ul>
+            {% for comment in comments %}
+                <li>
+                    <p>{{ comment.text }}</p>
+                    <small>{{ comment.created_at }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Комментариев пока нет.</p>
+    {% endif %}
+</body>
+</html>
